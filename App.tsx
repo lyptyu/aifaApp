@@ -12,6 +12,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/views/Home/index';
 import AboutScreen from './src/views/About/index';
+import IMScreen from './src/views/IM/index';
 const Tab = createBottomTabNavigator();
 
 function App() {
@@ -51,7 +52,16 @@ function App() {
               title: 'About',
             }}
           />
+          <Tab.Screen
+            name="IM"
+            component={IMScreen}
+            options={{
+              tabBarLabel: 'IM',
+              title: 'IM',
+            }}
+          />
         </Tab.Navigator>
+
       </NavigationContainer>
     </>
   );
