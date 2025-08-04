@@ -5,24 +5,56 @@
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View, Text } from 'react-native';
+import React from 'react';
+import { StatusBar, useColorScheme } from 'react-native';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeScreen from './views/Home/index';
+import AboutScreen from './views/About/index';
+const Tab = createBottomTabNavigator();
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
-
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
-    </View>
+    <>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+      />
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={{
+            tabBarActiveTintColor: '#007AFF',
+            tabBarInactiveTintColor: 'gray',
+            headerStyle: {
+              backgroundColor: '#f8f8f8',
+            },
+            headerTintColor: '#000',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        >
+          <Tab.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{
+              tabBarLabel: 'Home',
+              title: 'Home',
+            }}
+          />
+          <Tab.Screen
+            name="About"
+            component={AboutScreen}
+            options={{
+              tabBarLabel: 'About',
+              title: 'About',
+            }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
