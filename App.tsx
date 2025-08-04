@@ -10,8 +10,8 @@ import { StatusBar, useColorScheme } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './views/Home/index';
-import AboutScreen from './views/About/index';
+import HomeScreen from './src/views/Home/index';
+import AboutScreen from './src/views/About/index';
 const Tab = createBottomTabNavigator();
 
 function App() {
