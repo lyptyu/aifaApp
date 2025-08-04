@@ -72,3 +72,6 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+
+android/gradle/wrapper/gradle-8.14.1-bin.zip
